@@ -46,15 +46,15 @@ let app = (function () {
         paragraph.textContent = mySentence;
 
         let myArray = [
-            {name: "Tom", age: 25},
-            {name: "Bob", age: 35},
-            {name: "Mike", age: 45},
-            {name: "Juan", age: 55},
-            {name: "Smyth", age: 65}
+            { name: "Tom", age: 25 },
+            { name: "Bob", age: 35 },
+            { name: "Mike", age: 45 },
+            { name: "Juan", age: 55 },
+            { name: "Smyth", age: 65 }
         ];
 
-        myArray.push( {name: "Carol", age: 15});
-        myArray.unshift( {name: "Jake", age: 45});
+        myArray.push({ name: "Carol", age: 15 });
+        myArray.unshift({ name: "Jake", age: 45 });
 
         let content = document.getElementsByClassName("content");
         console.log("myArray length: " + myArray.length);
@@ -63,13 +63,13 @@ let app = (function () {
         let arrayEmpty;
 
         // ternary operator - alternate toggle conditional statement
-        arrayEmpty = (myArray.length > 0 ) ?  false : true;
+        arrayEmpty = (myArray.length > 0) ? false : true;
 
 
         // === checks both value and type where == only checks value
-        if(myArray[0].age === 25) {
-            
-            
+        if (myArray[0].age === 25) {
+
+
 
             console.log("First Element is Peter");
         }
@@ -86,14 +86,12 @@ let app = (function () {
         console.log(myAssociateArray);
         console.log(myAssociateArray["Name"]);
 
-        let myFavouriteThingsList =[
+        let myFavouriteThingsList = [
             "Video Games",
             "Movies",
             "Cars",
             "Space Flight (FTL)"
         ];
-
-
 
         // "hook into" a ul that is empty that has an id of "myFavouriteThings"
         let myFavouritesList = document.getElementById("myFavouriteThings");
@@ -103,10 +101,10 @@ let app = (function () {
             newItem.textContent = thing;
             myFavouritesList.appendChild(newItem);
         });
-
-
-        
         console.log(myFavouritesList);
+    }
+    function ContactContent(){
+        // for assignment 2
     }
 
     function Start() {
@@ -117,29 +115,37 @@ let app = (function () {
         console.log("----------------------------");
         console.log("Title: " + title);
 
-        switch (title) {
-            case "COMP125 - Home":
-                HomeContent();
-                break;
+        // Week 4 Lab work
+        try {
+            switch (title) {
+                case "COMP125 - Home":
+                    HomeContent();
+                    break;
 
-            case "COMP125 - About":
-                AboutContent();
-                break;
+                case "COMP125 - About":
+                    AboutContent();
+                    break;
 
-            default:
-                break;
+                case "COMP125 - Contact":
+                    ContactContent();
+                    break;
+
+                default:
+                    throw ("title not found");
+                    break;
+            }
+        }
+        catch{
+            console.warn("something went wrong when switching pages");
         }
     }
-
 
     //window.onload = Start;
 
     window.addEventListener("load", Start);
 
-    
     return {
         title: document.title
 
     };
-    
 })();
